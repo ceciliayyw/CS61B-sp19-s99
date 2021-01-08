@@ -26,4 +26,10 @@ public class Body {
        double radius = Math.sqrt(squareofRadius);
        return radius;
     }
+
+    public double calcForceExertedBy (Body a){
+        double gConstant = (6.67*Math.pow(10,-11));
+        double totalForce = (gConstant*a.mass*mass)/(calcDistance(a)*calcDistance(a));
+        return totalForce;
+    }
 }
