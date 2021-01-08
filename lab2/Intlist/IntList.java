@@ -81,8 +81,18 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        if (A == null){
+            return B;
+        }
+        else if (B == null){
+            return A;
+        }
+        IntList temp = A;
+        while (temp.rest!= null){
+            temp = temp.rest;
+        }
+        temp.rest = B;
+        return A;
     }
 
     /**
@@ -90,8 +100,30 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        if (A == null){
+            return B;
+        }
+        else if (B == null){
+            return A;
+        }
+        IntList cloneList = new IntList (A.first, null);
+        IntList tempCloneList = cloneList;
+        IntList tempA = A;
+        IntList tempB = B;
+        while (tempA.rest != null){
+            tempA = tempA.rest;
+            tempCloneList.rest = new IntList (tempA.first, null);
+            tempCloneList = tempCloneList.rest;
+        }
+        tempCloneList.rest = new IntList (tempB.first, null);
+        tempCloneList = tempCloneList.rest;
+
+        while (tempB.rest != null){
+            tempB = tempB.rest;
+            tempCloneList.rest = new IntList (tempB.first, null);
+            tempCloneList = tempCloneList.rest;
+        }
+        return cloneList;
     }
 
 
@@ -176,7 +208,7 @@ public class IntList {
      * doesn't get stuck in an infinite loop.
      */
 
-    private int detectCycles(IntList A) {
+    public int detectCycles(IntList A) {
         IntList tortoise = A;
         IntList hare = A;
 
