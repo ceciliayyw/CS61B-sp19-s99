@@ -6,6 +6,7 @@ public class Body {
     double yyVel;
     double mass;
     String imgFileName;
+    public static final double gConstant = (6.67*Math.pow(10,-11));
 
     public Body (double xP, double yP, double xV, double yV, double m, String img){
         xxPos = xP;
@@ -28,8 +29,56 @@ public class Body {
     }
 
     public double calcForceExertedBy (Body a){
-        double gConstant = (6.67*Math.pow(10,-11));
         double totalForce = (gConstant*a.mass*mass)/(calcDistance(a)*calcDistance(a));
         return totalForce;
+    }
+
+    public double calcForceExertedByX(Body a){
+        double forceX = calcForceExertedBy(a)*(a.xxPos - xxPos)/calcDistance(a);
+        return forceX;
+    }
+
+    public double calcForceExertedByY(Body a) {
+        double forceY = calcForceExertedBy(a)*(a.yyPos - yyPos)/calcDistance(a);
+        return forceY;
+    }
+
+    public double calcNetForceExertedByX(Body [] a){
+        double netForceX = 0;
+        for (int i = 0; i<a.length; i++){
+            if (this.equals(a[i])){
+                continue;
+            }
+            else{
+                netForceX = netForceX + calcForceExertedByX(a[i]);
+            }
+        }
+        return netForceX;
+    }
+
+    public double calcNetForceExertedByY(Body [] a){
+        double netForceY = 0;
+        for (int i = 0; i<a.length; i++){
+            if (this.equals(a[i])){
+                continue;
+            }
+            else{
+                netForceY = netForceY + calcForceExertedByY(a[i]);
+            }
+        }
+        return netForceY;
+    }
+
+
+    public void update(double dt, double fx, double fy){
+        double accX = fx/mass;
+        double accY = fy/mass;
+
+        xxVel = xxVel+(dt*accX);
+        yyVel = yyVel+(dt*accY);
+
+        xxPos = xxPos+(dt*xxVel);
+        yyPos = yyPos+(dt*yyVel);
+
     }
 }
