@@ -4,20 +4,20 @@ import org.junit.Test;
 
 public class IntListTest {
     /** Test IntList.reverse()*/
-    @Test
+    @Test(timeout = 1000)
     public void testReverse(){
         IntList input1 = IntList.of(1,2,3);
         IntList expected1 = IntList.of(3,2,1);
 
         IntList output1 = IntList.reverse(input1);
-        assertNotEquals(expected1, output1);
+        assertEquals(expected1, output1);
 
         IntList input2 = IntList.of();
         IntList expected2 = IntList.of();
 
         IntList output2 = IntList.reverse(input2);
-        assertNotEquals(expected2,output2);
-        
+        assertEquals(expected2,output2);
+
     }
 
     /**

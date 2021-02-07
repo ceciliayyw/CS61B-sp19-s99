@@ -5,17 +5,17 @@ import java.util.Formatter;
  * with a large number of additional methods.
  *
  * @author P. N. Hilfinger, with some modifications by Josh Hug and melaniecebula
- *         [Do not modify this file.]
+ * [Do not modify this file.]
  */
 public class IntList {
     /**
      * First element of list.
      */
-    public int first;
+    private int first;
     /**
      * Remaining elements of list.
      */
-    public IntList rest;
+    private IntList rest;
 
     /**
      * A List with first FIRST0 and rest REST0.
@@ -29,7 +29,7 @@ public class IntList {
      * A List with null rest, and first = 0.
      */
     public IntList() {
-    /* NOTE: public IntList () { }  would also work. */
+        /* NOTE: public IntList () { }  would also work. */
         this(0, null);
     }
 
@@ -81,14 +81,13 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        if (A == null){
+        if (A == null) {
             return B;
-        }
-        else if (B == null){
+        } else if (B == null) {
             return A;
         }
         IntList temp = A;
-        while (temp.rest!= null){
+        while (temp.rest != null) {
             temp = temp.rest;
         }
         temp.rest = B;
@@ -100,45 +99,48 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        if (A == null){
+        if (A == null) {
             return B;
-        }
-        else if (B == null){
+        } else if (B == null) {
             return A;
         }
-        IntList cloneList = new IntList (A.first, null);
+        IntList cloneList = new IntList(A.first, null);
         IntList tempCloneList = cloneList;
         IntList tempA = A;
         IntList tempB = B;
-        while (tempA.rest != null){
+        while (tempA.rest != null) {
             tempA = tempA.rest;
-            tempCloneList.rest = new IntList (tempA.first, null);
+            tempCloneList.rest = new IntList(tempA.first, null);
             tempCloneList = tempCloneList.rest;
         }
-        tempCloneList.rest = new IntList (tempB.first, null);
+        tempCloneList.rest = new IntList(tempB.first, null);
         tempCloneList = tempCloneList.rest;
 
-        while (tempB.rest != null){
+        while (tempB.rest != null) {
             tempB = tempB.rest;
-            tempCloneList.rest = new IntList (tempB.first, null);
+            tempCloneList.rest = new IntList(tempB.first, null);
             tempCloneList = tempCloneList.rest;
         }
         return cloneList;
     }
 
+    /**
+     * Returns the reverse of the given IntList. This method is destructive.
+     * If given null as an input, returns null.
+     */
 
-
-
-
-
-
-
-
-
-
-
-
-
+    public static IntList reverse(IntList A) {
+        if (A == null || A.rest == null) {
+            return A;
+        } else {
+            IntList temp = A;
+            IntList endOfReversed = temp.rest;
+            IntList reversed = reverse(temp.rest);
+            endOfReversed.rest = A;
+            A.rest = null;
+            return reversed;
+        }
+    }
 
 
     /**
