@@ -90,9 +90,11 @@ public class LinkedListDeque<T> {
      * should not be looping or recursion
      */
     public IntNode removeFirst() {
-        if (size() == 0 || size() == 1) {
+        if (isEmpty() == true || size() == 1) {
             size -= 1;
-            return null;
+            sentinel1.next = sentinel2;
+            sentinel2.prev = sentinel1;
+            return sentinel1;
         } else {
             IntNode temp = sentinel1.next;
             sentinel1.next = temp.next;
@@ -108,7 +110,9 @@ public class LinkedListDeque<T> {
     public T removeLast() {
         if (isEmpty() == true || size() == 1) {
             size -= 1;
-            return null;
+            sentinel1.next = sentinel2;
+            sentinel2.prev = sentinel1;
+            return sentinel1.item;
         } else {
             IntNode temp = sentinel2.prev;
             sentinel2.prev = temp.prev;
@@ -164,12 +168,8 @@ public class LinkedListDeque<T> {
 
     public static void main(String arg[]) {
         LinkedListDeque l = new LinkedListDeque();
-        l.addFirst(1);
-        l.addFirst(2);
-        l.addFirst(3);
-        l.addLast(4);
-//        l.LinkedListDeque(l);
-
-        System.out.print(l.getRecursive(1));
+        l.addFirst(10);
+        l.removeFirst();
+        l.printDeque();
     }
 }
