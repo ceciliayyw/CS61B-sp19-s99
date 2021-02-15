@@ -2,21 +2,21 @@ public class MyOwnTestArrayDeque {
 
     public static void main(String arg[]) {
         ArrayDeque l = new ArrayDeque();
-    l.addLast(0);
-    l.removeLast();
-    l.addLast(2);
-    l.addLast(3);
-    l.removeLast();
-    l.removeFirst();
-    l.addFirst(6);
-    l.addLast(7);
-    l.addFirst(8);
-    l.removeFirst();
-    l.addLast(10);
-    l.removeFirst();
-        l.printDeque();
+//    l.addLast(0);
+//    l.removeLast();
+//    l.addLast(2);
+//    l.addLast(3);
+//    l.removeLast();
+//    l.removeFirst();
+//    l.addFirst(6);
+//    l.addLast(7);
+//    l.addFirst(8);
+//    l.removeFirst();
+//    l.addLast(10);
+//    l.removeFirst();
+//        l.printDeque();
 
-
+//
 //        l.addFirst(0);
 //        l.addFirst(1);
 //        l.addFirst(2);
@@ -26,5 +26,20 @@ public class MyOwnTestArrayDeque {
 //        l.addFirst(6);
 //        l.isEmpty();
 //        System.out.println (l.removeLast());
+
+        l.addFirst(0);
+        l.addLast(1);
+        l.addLast(2);
+        l.removeFirst();
+        l.addFirst(4);
+        l.addLast(5);
+        l.removeLast();
+        l.removeLast();
+        l.addFirst(8);
+        l.removeLast();
+        l.addFirst(10);
+        l.addLast(11);
+        System.out.print(l.get(2));
+        l.printDeque();
     }
 }

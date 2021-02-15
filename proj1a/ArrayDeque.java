@@ -224,13 +224,19 @@ public class ArrayDeque<T> {
         if (index < 0 || index > size) {
             return null;
         } else if (front > rear) {
-            int counter = 0;
-            while (counter != index) {
-                counter++;
+            int numOfFront = items.length - front;
+            if (numOfFront<index){
+                int remaining = index - numOfFront;
+                return items [remaining];
+            }else{
+                int counter = front;
+                while ( counter != index){
+                    counter ++;
+                }
+                return items[counter];
             }
-            return items[front + counter];
-        } else {
-            return items[index];
+        }else{
+            return items [index];
         }
     }
 
