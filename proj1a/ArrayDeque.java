@@ -195,11 +195,15 @@ public class ArrayDeque<T> {
     }
 
     public T get(int index) {
-        return items[index];
+        if ( index < 0 || index > size){
+            return null;
+        }else {
+            return items[index];
+        }
     }
 
     private  ArrayDeque ArrayDeque(ArrayDeque other) {
-        ArrayDeque newArr = new ArrayDeque();
+        ArrayDeque newArr =  new ArrayDeque();
         if (other.isEmpty() == true){
             return newArr;
         }else{
@@ -210,18 +214,4 @@ public class ArrayDeque<T> {
         }
     }
 
-
-    private static void main(String arg[]) {
-        ArrayDeque l = new ArrayDeque();
-        l.addLast(1);
-        l.addFirst(10);
-        l.addFirst(12);
-        l.addLast(2);
-        l.addLast(3);
-
-//        l.addLast(16);
-//        l.addLast(17);
-//        l.addLast(18);
-        l.printDeque();
-    }
 }

@@ -13,7 +13,7 @@ public class LinkedListDeque<T> {
         sentinel1.prev = sentinel2;
     }
 
-    public class IntNode {
+    private class IntNode {
         private IntNode prev;
         private T item;
         private IntNode next;
@@ -65,7 +65,7 @@ public class LinkedListDeque<T> {
     }
 
     public boolean isEmpty() {
-        if (sentinel1.next == sentinel2) {
+        if (sentinel1.next == sentinel2 && sentinel2.prev == sentinel1) {
             return true;
         } else {
             return false;
@@ -92,7 +92,7 @@ public class LinkedListDeque<T> {
     public T removeFirst() {
         if (isEmpty() == true || size() == 1) {
             T removedItem = sentinel1.next.item;
-            size -= 1;
+            size = 0;
             sentinel1.next = sentinel2;
             sentinel2.prev = sentinel1;
             return removedItem;
@@ -111,16 +111,18 @@ public class LinkedListDeque<T> {
      */
     public T removeLast() {
         if (isEmpty() == true || size() == 1) {
-            size -= 1;
+            T removedItem = sentinel1.next.item;
+            size = 0;
             sentinel1.next = sentinel2;
             sentinel2.prev = sentinel1;
-            return sentinel1.item;
+            return removedItem;
         } else {
+            T removedItem = sentinel2.prev.item;
             IntNode temp = sentinel2.prev;
             sentinel2.prev = temp.prev;
             temp.prev.next = sentinel2;
             size -= 1;
-            return sentinel2.prev.item;
+            return removedItem;
         }
     }
 
@@ -137,7 +139,7 @@ public class LinkedListDeque<T> {
         }
     }
 
-    public LinkedListDeque LinkedListDeque(LinkedListDeque other) {
+    private LinkedListDeque LinkedListDeque(LinkedListDeque other) {
         LinkedListDeque newCopy = new LinkedListDeque();
         if (other.isEmpty() == true) {
             return newCopy;
@@ -156,7 +158,7 @@ public class LinkedListDeque<T> {
         return getRecursiveHelper(sentinel1.next, index);
     }
 
-    public T getRecursiveHelper(IntNode currentNode , int index) {
+    private T getRecursiveHelper(IntNode currentNode , int index) {
         IntNode temp = currentNode;
         if (isEmpty() == true) {
             return null;
@@ -166,13 +168,5 @@ public class LinkedListDeque<T> {
         } else {
              return getRecursiveHelper(temp.next, index -1);
         }
-    }
-
-    public static void main(String arg[]) {
-        LinkedListDeque l = new LinkedListDeque();
-        l.addFirst("hello");
-        String x =(String) l.removeFirst();
-        System.out.println(x);
-        l.printDeque();
     }
 }
