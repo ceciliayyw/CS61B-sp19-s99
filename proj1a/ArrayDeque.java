@@ -78,7 +78,7 @@ public class ArrayDeque<T> {
                     newArr[i] = items[i];
                 }
                 items = newArr;
-                front = newArr.length - numOfFront -1;  /* update the new index of front */
+                front = newArr.length - numOfFront - 1;  /* update the new index of front */
 
             }
 
@@ -148,7 +148,7 @@ public class ArrayDeque<T> {
     public void printDeque() {
         System.out.print("Output: ");
         if (front == rear) {
-            System.out.println(items[front]);
+            System.out.println(items[0]);
         } else if (front > rear) {
             /* front to the end of array*/
             for (int i = front; i < items.length; i++) {
@@ -168,47 +168,63 @@ public class ArrayDeque<T> {
 
     /* no resizing is needed */
     public T removeFirst() {
-        T removedItem = items[front];
+        ;
         if (front == rear) {
-            return null;
-        } else if (front == items.length) {
+            T removedItem = items[0];
+            items[0] = null;
+            size = 0;
+            return removedItem;
+        } else if (front == items.length - 1) {
+            T removedItem = items[front];
             items[front] = null;
             front = rear;
+            size -= 1;
+            return removedItem;
         } else {
+            T removedItem = items[front];
             items[front] = null;
             front += 1;
+            size -= 1;
+            return removedItem;
         }
-        size -= 1;
-        return removedItem;
     }
 
     public T removeLast() {
-        T removedItem = items[rear];
         if (front == rear) {
-            return null;
-        } else {
+            T removedItem = items[0];
+            items[0] = null;
+            size = 0;
+            return removedItem;
+        } else if (rear == items.length - 1) {
+            T removedItem = items[rear];
             items[rear] = null;
-            rear -= 1;
+            rear = front;
+            size -= 1;
+            return removedItem;
+        } else {
+            T removedItem = items[rear];
+            items[rear] = null;
+            rear--;
+            size -= 1;
+            return removedItem;
         }
-        size -= 1;
-        return removedItem;
     }
 
     public T get(int index) {
-        if ( index < 0 || index > size){
+        if (index < 0 || index > size) {
             return null;
-        }else {
+        } else {
             return items[index];
         }
     }
 
-    private  ArrayDeque ArrayDeque(ArrayDeque other) {
-        ArrayDeque newArr =  new ArrayDeque();
-        if (other.isEmpty() == true){
+    private ArrayDeque ArrayDeque(ArrayDeque other) {
+        ArrayDeque newArr = new ArrayDeque();
+        if (other.isEmpty() == true) {
             return newArr;
-        }else{
-            for ( int i = 0 ; i < other.items.length; i ++){
-                newArr.items [i] = other.items[i];
+        } else {
+            for (int i = 0; i < other.items.length; i++) {
+                newArr.items[i] = other.items[i];
             }
             return newArr;
         }
