@@ -168,7 +168,7 @@ public class ArrayDeque<T> {
 
     /* no resizing is needed */
     public T removeFirst() {
-        ;
+
         if (front == rear) {
             T removedItem = items[0];
             items[0] = null;
@@ -177,7 +177,7 @@ public class ArrayDeque<T> {
         } else if (front == items.length - 1) {
             T removedItem = items[front];
             items[front] = null;
-            front = rear;
+            front = 0 ;
             size -= 1;
             return removedItem;
         } else {
@@ -205,7 +205,7 @@ public class ArrayDeque<T> {
             if (rear == 0) {
                 T removedItem = items[rear];
                 items[rear] = null;
-                rear = front;
+                rear = items.length -1;
                 size -= 1;
                 return removedItem;
             }else{
