@@ -23,7 +23,7 @@ public class ArrayDeque<T> {
             items[0] = item;
         } else {
             if (minusOne(front) == rear && size == items.length) {
-                resizing(item);
+                addFirstResizing(item);
                 front = minusOne(front);
                 items[front] = item;
             } else {
@@ -42,7 +42,7 @@ public class ArrayDeque<T> {
 
         } else {
             if (plusOne(rear) == items.length || plusOne(rear) == front) {
-                resizing(item);
+                addLastResizing(item);
                 rear = plusOne(rear);
                 items[rear] = item;
 
@@ -94,7 +94,7 @@ public class ArrayDeque<T> {
         if (isEmpty() == true) {
             return null;
         } else if (size == 1) {
-//            removedItem = items[0];
+
             items[0] = null;
             size = 0;
         } else {
@@ -110,7 +110,7 @@ public class ArrayDeque<T> {
         if (isEmpty() == true) {
             return null;
         } else if (size == 1) {
-//            removedItem = items[0];
+
             items[0] = null;
             size = 0;
         } else {
@@ -181,10 +181,10 @@ public class ArrayDeque<T> {
     }
 
     /* resizing front == rear */
-    private T[] resizing(T item) {
+    private T[] addFirstResizing(T item) {
         T[] newArr = (T[]) new Object[items.length * refactor];
         int ptr = 1;
-        if (front > rear) {
+        if (front > rear) {  /** add first */
             for (int i = front; i < items.length; i++) {
                 newArr[ptr] = items[i];
                 ptr++;
@@ -198,6 +198,30 @@ public class ArrayDeque<T> {
                 newArr[ptr] = items[i];
             }
         }
+        front = 1; 
+        items = newArr;
+        return newArr;
+    }
+
+    private T[] addLastResizing(T item) {
+        T[] newArr = (T[]) new Object[items.length * refactor];
+        int ptr = 0;
+        if (front > rear) {  /** add last */
+            for (int i = front; i < items.length; i++) {
+                newArr[ptr] = items[i];
+                ptr++;
+            }
+            for (int i = 0; i <= rear; i++) {
+                newArr[ptr] = items[i];
+                ptr++;
+            }
+            rear = ptr -1;
+        } else { /* front < rear */
+            for (int i = front; i <= rear; i++) {
+                newArr[ptr] = items[i];
+            }
+        }
+        front = 0;
         items = newArr;
         return newArr;
     }
