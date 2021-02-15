@@ -94,7 +94,7 @@ public class ArrayDeque<T> {
         if (isEmpty() == true) {
             return null;
         } else if (size == 1) {
-            removedItem = items[0];
+//            removedItem = items[0];
             items[0] = null;
             size = 0;
         } else {

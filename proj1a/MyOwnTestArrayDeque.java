@@ -1,7 +1,7 @@
 public class MyOwnTestArrayDeque {
 
     public static void main(String arg[]) {
-        ArrayDeque l = new ArrayDeque();
+        ArrayDeque ArrayDeque = new ArrayDeque();
         /* 7,10 */
 //    l.addLast(0);
 //    l.removeLast();
@@ -86,18 +86,20 @@ public class MyOwnTestArrayDeque {
 //        l.addLast(2);
 //        System.out.print(l.removeFirst());
 
-        l.size();
-        l.addLast(1);
-        l.addFirst(2);
-        l.addFirst(3);
-        l.addFirst(4);
-        l.addLast(5);
-        l.addFirst(6);
-        l.isEmpty();
-        l.removeLast();
-        l.addLast(9);
-        l.removeFirst();
-        System.out.print(l.removeFirst());
+        ArrayDeque.addFirst(0);
+        ArrayDeque.removeFirst();
+        ArrayDeque.addFirst(2);
+        ArrayDeque.addFirst(3);
+        ArrayDeque.get(0);
+        ArrayDeque.addLast(5);
+        ArrayDeque.get(1);
+        ArrayDeque.removeFirst();
+        ArrayDeque.addFirst(8);
+        ArrayDeque.addLast(9);
+        ArrayDeque.removeFirst();
+        ArrayDeque.removeLast();
+        ArrayDeque.removeFirst();
+        System.out.print(ArrayDeque.removeFirst());
 
 
     }
