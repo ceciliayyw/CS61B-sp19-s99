@@ -26,20 +26,46 @@ public class MyOwnTestArrayDeque {
 //        l.addFirst(6);
 //        l.isEmpty();
 //        System.out.println (l.removeLast());
+  /*Get */
+//        l.addFirst(0);
+//        l.addLast(1);
+//        l.addLast(2);
+//        l.removeFirst();
+//        l.addFirst(4);
+//        l.addLast(5);
+//        l.removeLast();
+//        l.removeLast();
+//        l.addFirst(8);
+//        l.removeLast();
+//        l.addFirst(10);
+//        l.addLast(11);
+//        System.out.print(l.get(2));
+//        l.printDeque();
 
+
+        /* Get */
         l.addFirst(0);
-        l.addLast(1);
+        l.removeLast();
         l.addLast(2);
+        l.get(0);
+        l.addLast(4);
+        l.get(0);
+        l.addLast(6);
+        l.get(2);
+        l.removeLast();
+        l.get(0);
+        l.removeLast();
         l.removeFirst();
-        l.addFirst(4);
-        l.addLast(5);
-        l.removeLast();
-        l.removeLast();
-        l.addFirst(8);
-        l.removeLast();
-        l.addFirst(10);
-        l.addLast(11);
-        System.out.print(l.get(2));
-        l.printDeque();
+        l.addFirst(12);
+        l.removeFirst();
+        l.addFirst(14);
+        l.addLast(15);
+        l.addLast(16);
+        l.get(2);
+        l.removeFirst();
+        l.removeFirst();
+        System.out.print(l.removeLast());
+
+
     }
 }

@@ -191,8 +191,8 @@ public class ArrayDeque<T> {
 
     public T removeLast() {
         if (front == rear) {
-            T removedItem = items[0];
-            items[0] = null;
+            T removedItem = items[rear];
+            items[rear] = null;
             size = 0;
             return removedItem;
         } else if (rear == items.length - 1) {
