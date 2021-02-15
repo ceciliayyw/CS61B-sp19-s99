@@ -44,30 +44,60 @@ public class MyOwnTestArrayDeque {
 
 
 
-        /* Get */
-        l.addFirst(0);
-        l.removeLast();
-        l.addLast(2);
-        l.get(0);
-        l.addLast(4);
-        l.get(0);
-        l.addLast(6);
-        l.get(2);
-        l.removeLast();
-        l.get(0);
-        l.removeLast();
-        l.removeFirst();
-        l.addFirst(12);
-        l.removeFirst();
-        l.addFirst(14);
-        l.addLast(15);
-        l.addLast(16);
-        l.get(2);
-        l.removeFirst();
-        l.removeFirst();
-        System.out.print(l.removeLast());
+//        /* Get */
+//        l.addFirst(0);
+//        l.removeLast();
+//        l.addLast(2);
+//        l.get(0);
+//        l.addLast(4);
+//        l.get(0);
+//        l.addLast(6);
+//        l.get(2);
+//        l.removeLast();
+//        l.get(0);
+//        l.removeLast();
+//        l.removeFirst();
+//        l.addFirst(12);
+//        l.removeFirst();
+//        l.addFirst(14);
+//        l.addLast(15);
+//        l.addLast(16);
+//        l.get(2);
+//        l.removeFirst();
+//        l.removeFirst();
+//        System.out.print(l.removeLast());
 
 
+//        l.addFirst(0);
+//        l.addFirst(1);
+//        l.addFirst(2);
+//        l.addFirst(3);
+//        l.addFirst(4);
+//        l.addFirst(5);
+//        l.addFirst(6);
+//        l.addFirst(7);
+//        l.addFirst(8);
+//        l.addFirst(9);
+//System.out.println(l.removeLast());
+
+
+//        l.addLast(0);
+//        l.addLast(1);
+//        l.addLast(2);
+//        System.out.print(l.removeFirst());
+
+        l.size();
+        l.addLast(1);
+        l.addFirst(2);
+        l.addFirst(3);
+        l.addFirst(4);
+        l.addLast(5);
+        l.addFirst(6);
+        l.isEmpty();
+        l.removeLast();
+        l.addLast(9);
+        l.removeFirst();
+        System.out.print(l.removeFirst());
 
 
     }

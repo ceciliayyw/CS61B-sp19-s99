@@ -11,7 +11,7 @@ public class ArrayDeque<T> {
      */
 
     public ArrayDeque() {
-        items = (T[]) new Object[2];
+        items = (T[]) new Object[8];
         front = rear = -1;
         size = 0;
         refactor = 2;
