@@ -22,7 +22,7 @@ public class ArrayDeque<T> {
     // when the list is empty, front = rear at index -1. When the first element is inserted, front = rear with index at 0.
     // When second element is added, the rear index will add 1, i.e. rear = rear +1
     public ArrayDeque() {
-        items = (T[]) new Object[1];
+        items = (T[]) new Object[8];
         front = rear = -1;
         size = 0;
         refactor = 2;
@@ -198,21 +198,37 @@ public class ArrayDeque<T> {
         } else if (rear == items.length - 1) {
             T removedItem = items[rear];
             items[rear] = null;
-            rear = front;
+            rear = rear -1;
             size -= 1;
             return removedItem;
         } else {
-            T removedItem = items[rear];
-            items[rear] = null;
-            rear--;
-            size -= 1;
-            return removedItem;
+            if (rear == 0) {
+                T removedItem = items[rear];
+                items[rear] = null;
+                rear = front;
+                size -= 1;
+                return removedItem;
+            }else{
+                T removedItem = items[rear];
+                items[rear] = null;
+                rear--;
+                size -= 1;
+                return removedItem;
+
+            }
+
         }
     }
 
     public T get(int index) {
         if (index < 0 || index > size) {
             return null;
+        } else if (front > rear) {
+            int counter = 0;
+            while (counter != index) {
+                counter++;
+            }
+            return items[front + counter];
         } else {
             return items[index];
         }
