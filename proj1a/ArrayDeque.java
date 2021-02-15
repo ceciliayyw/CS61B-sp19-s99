@@ -198,7 +198,7 @@ public class ArrayDeque<T> {
                 newArr[ptr] = items[i];
             }
         }
-        front = 1; 
+//        front = 1;
         items = newArr;
         return newArr;
     }
