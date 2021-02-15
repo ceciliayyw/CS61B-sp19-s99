@@ -138,9 +138,10 @@ public class ArrayDeque<T> {
                     ptr++;
                 }
             } else {
-
+                int ptr = 0;
                 for (int i = front; i < items.length; i++) {
-                    newArr[i] = items[i];
+                    newArr[ptr] = items[i];
+                    ptr ++;
                 }
 
             }
@@ -170,7 +171,7 @@ public class ArrayDeque<T> {
         }
     }
 
-    public int minusOne(int index) {
+    private int minusOne(int index) {
         if (index == 0) {
             return items.length - 1;
         } else {
