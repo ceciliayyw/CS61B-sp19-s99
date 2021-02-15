@@ -14,9 +14,9 @@ public class LinkedListDeque<T> {
     }
 
     public class IntNode {
-        public IntNode prev;
-        public T item;
-        public IntNode next;
+        private IntNode prev;
+        private T item;
+        private IntNode next;
 
 
         public IntNode(T item, IntNode y) {
@@ -89,18 +89,20 @@ public class LinkedListDeque<T> {
     /**
      * should not be looping or recursion
      */
-    public IntNode removeFirst() {
+    public T removeFirst() {
         if (isEmpty() == true || size() == 1) {
+            T removedItem = sentinel1.next.item;
             size -= 1;
             sentinel1.next = sentinel2;
             sentinel2.prev = sentinel1;
-            return sentinel1;
+            return removedItem;
         } else {
+            T removedItem = sentinel1.next.item;
             IntNode temp = sentinel1.next;
             sentinel1.next = temp.next;
             temp.next.prev = sentinel1;
             size -= 1;
-            return sentinel1.next;
+            return removedItem;
         }
     }
 
@@ -168,8 +170,9 @@ public class LinkedListDeque<T> {
 
     public static void main(String arg[]) {
         LinkedListDeque l = new LinkedListDeque();
-        l.addFirst(10);
-        l.removeFirst();
+        l.addFirst("hello");
+        String x =(String) l.removeFirst();
+        System.out.println(x);
         l.printDeque();
     }
 }

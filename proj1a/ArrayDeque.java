@@ -1,9 +1,9 @@
 public class ArrayDeque<T> {
-    int size;
-    T[] items;
-    int front;
-    int rear;
-    int refactor;
+    private int size;
+    private T[] items;
+    private int front;
+    private int rear;
+    private int refactor;
 
     //e.g.   0 1 2 3 4 5
     //item: [4 5 3 2 8......]
@@ -198,7 +198,7 @@ public class ArrayDeque<T> {
         return items[index];
     }
 
-    public  ArrayDeque ArrayDeque(ArrayDeque other) {
+    private  ArrayDeque ArrayDeque(ArrayDeque other) {
         ArrayDeque newArr = new ArrayDeque();
         if (other.isEmpty() == true){
             return newArr;
@@ -211,7 +211,7 @@ public class ArrayDeque<T> {
     }
 
 
-    public static void main(String arg[]) {
+    private static void main(String arg[]) {
         ArrayDeque l = new ArrayDeque();
         l.addLast(1);
         l.addFirst(10);
