@@ -5,131 +5,53 @@ public class ArrayDeque<T> {
     private int rear;
     private int refactor;
 
-    //e.g.   0 1 2 3 4 5
-    //item: [4 5 3 2 8......]
-    //size: 5
-
-    /*Invariants: (things that are always true)
-    addLast: the next item we want to add, its position = size;
-    size: it is the number of items in the list. The size variable should be shared with all methods in the class;
-     */
-
 
     /**
      * creates an empty list
      */
-    // (T[]) new Object <- source from Google
-    // when the list is empty, front = rear at index -1. When the first element is inserted, front = rear with index at 0.
-    // When second element is added, the rear index will add 1, i.e. rear = rear +1
+
     public ArrayDeque() {
-        items = (T[]) new Object[8];
+        items = (T[]) new Object[2];
         front = rear = -1;
         size = 0;
         refactor = 2;
     }
 
     public void addFirst(T item) {
-        if (size == 0 && size < items.length) {
+        if (isEmpty() == true) {
             front = rear = 0;
-            items[front] = item;
-
-
-        } else if (front == 0 && size != 0 && size < items.length) {
-            items[items.length - 1] = item;
-            front = items.length - 1;
-
-        } else if (size != 0 && size < items.length) {
-            items[front - 1] = item;
-            front -= 1;
-
-        } else if (size + 1 > items.length) {    /*resizing */
-            T[] newArr = (T[]) new Object[items.length * refactor];
-            int numOfFront = 0;
-            int numOfRear = 0;
-            if (front == rear) {
-                newArr[newArr.length - 1] = item;
-                front += 1;
-
+            items[0] = item;
+        } else {
+            if (minusOne(front) == rear && size == items.length) {
+                resizing(item);
+                front = minusOne(front);
+                items[front] = item;
+            } else {
+                front = minusOne(front);
+                items[front] = item;
             }
-            if (front < rear) {   /* front is at the index 0, while rear is at items[length -1] */
-                numOfFront = items.length - 1;
-                numOfRear = 1;
-                newArr[newArr.length - 1] = item;  /* the new item is being inserted at the back of the arr */
-                /* looping from the front to the end of arr */
-                for (int i = 0; i < items.length; i++) {
-                    newArr[i] = items[i];
-                }
-                items = newArr;
-                front = newArr.length - 1;  /* update the index of front */
-
-            } else if (rear < front) {  /* front is at the back while rear is at the front */
-                numOfFront = items.length - front;
-                numOfRear = rear + 1;
-                int temp = newArr.length - numOfFront - 1; /* to locate the index of front in the new arr with the same number of front */
-                newArr[temp] = item;    /* insert the new item at the front index of the new arr */
-                temp = temp + 1;
-                /* looping from items[front] to the end of the arr */
-                for (int i = front; i < items.length; i++) {
-                    newArr[temp] = items[i];
-                    temp += 1;
-
-                } /* looping from the beginning to rear of the old arr */
-                for (int i = 0; i <= rear; i++) {
-                    newArr[i] = items[i];
-                }
-                items = newArr;
-                front = newArr.length - numOfFront - 1;  /* update the new index of front */
-
-            }
-
         }
-        size += 1;
+        size++;
     }
-
 
     /* need resizing */
     public void addLast(T item) {
-        if (size == 0 && size < items.length) {
+        if (isEmpty() == true) {
             front = rear = 0;
-            items[rear] = item;
+            items[0] = item;
 
-
-        } else if (size != 0 && size < items.length) {
-            items[rear + 1] = item;
-            rear += 1;
-
-        } else { /* resizing */
-            T[] newArr = (T[]) new Object[items.length * refactor];
-            if (front <= rear) {
-                rear += 1;
-                for (int i = 0; i < items.length; i++) {
-                    newArr[i] = items[i];
-                }
-                newArr[rear] = item;
-                items = newArr;
+        } else {
+            if (plusOne(rear) == items.length || plusOne(rear) == front) {
+                resizing(item);
+                rear = plusOne(rear);
+                items[rear] = item;
 
             } else {
-                /* looping from front to the end of the arr */
-                int numOfFront = items.length - rear - 1;
-                int ptr = newArr.length - numOfFront;
-                for (int i = front; i < items.length; i++) {
-                    newArr[ptr] = items[i];
-                    ptr += 1;
-                }
-                /* looping from the beginning to rear*/
-                int curser = 0;
-                for (int i = 0; i <= rear; i++) {
-                    newArr[i] = items[i];
-                    curser += 1;
-                }
-                items = newArr;
-                newArr[curser] = item;
-                rear = curser;
-                front = newArr.length - numOfFront;
-
+                rear = plusOne(rear);
+                items[rear] = item;
             }
         }
-        size += 1;
+        size++;
     }
 
     public boolean isEmpty() {
@@ -168,77 +90,65 @@ public class ArrayDeque<T> {
 
     /* no resizing is needed */
     public T removeFirst() {
-
-        if (front == rear) {
-            T removedItem = items[0];
+        T removedItem = items[front];
+        if (isEmpty() == true) {
+            return null;
+        } else if (size == 1) {
+            removedItem = items[0];
             items[0] = null;
             size = 0;
-            return removedItem;
-        } else if (front == items.length - 1) {
-            T removedItem = items[front];
-            items[front] = null;
-            front = 0 ;
-            size -= 1;
-            return removedItem;
         } else {
-            T removedItem = items[front];
             items[front] = null;
-            front += 1;
-            size -= 1;
-            return removedItem;
+            front = plusOne(front);
+            size--;
         }
+        return removedItem;
     }
 
     public T removeLast() {
-        if (front == rear) {
-            T removedItem = items[rear];
-            items[rear] = null;
+        T removedItem = items[rear];
+        if (isEmpty() == true) {
+            return null;
+        } else if (size == 1) {
+            removedItem = items[0];
+            items[0] = null;
             size = 0;
-            return removedItem;
-        } else if (rear == items.length - 1) {
-            T removedItem = items[rear];
-            items[rear] = null;
-            rear = rear -1;
-            size -= 1;
-            return removedItem;
         } else {
-            if (rear == 0) {
-                T removedItem = items[rear];
-                items[rear] = null;
-                rear = items.length -1;
-                size -= 1;
-                return removedItem;
-            }else{
-                T removedItem = items[rear];
-                items[rear] = null;
-                rear--;
-                size -= 1;
-                return removedItem;
-
-            }
-
+            items[rear] = null;
+            rear = minusOne(rear);
+            size--;
         }
+        return removedItem;
     }
 
     public T get(int index) {
         if (index < 0 || index > size) {
             return null;
-        } else if (front > rear) {
-            int numOfFront = items.length - front;
-            if (numOfFront<index){
-                int remaining = index - numOfFront;
-                return items [remaining];
-            }else{
-                int counter = front;
-                while ( counter != index){
-                    counter ++;
+        } else {
+            T[] newArr = (T[]) new Object[items.length];
+            if (front > rear) {
+
+                int ptr = 0;
+                for (int i = front; i < items.length; i++) {
+                    newArr[ptr] = items[i];
+                    ptr++;
                 }
-                return items[counter];
+                for (int i = 0; i <= rear; i++) {
+                    newArr[ptr] = items[i];
+                    ptr++;
+                }
+            } else {
+
+                for (int i = front; i < items.length; i++) {
+                    newArr[i] = items[i];
+                }
+
             }
-        }else{
-            return items [index];
+            return newArr[index];
         }
+
     }
+
 
     private ArrayDeque ArrayDeque(ArrayDeque other) {
         ArrayDeque newArr = new ArrayDeque();
@@ -250,6 +160,45 @@ public class ArrayDeque<T> {
             }
             return newArr;
         }
+    }
+
+    private int plusOne(int index) {
+        if (index == items.length - 1) {
+            return 0;
+        } else {
+            return index + 1;
+        }
+    }
+
+    public int minusOne(int index) {
+        if (index == 0) {
+            return items.length - 1;
+        } else {
+            return index - 1;
+        }
+
+    }
+
+    /* resizing front == rear */
+    private T[] resizing(T item) {
+        T[] newArr = (T[]) new Object[items.length * refactor];
+        int ptr = 1;
+        if (front > rear) {
+            for (int i = front; i < items.length; i++) {
+                newArr[ptr] = items[i];
+                ptr++;
+            }
+            for (int i = 0; i <= rear; i++) {
+                newArr[ptr] = items[i];
+            }
+            rear = ptr;
+        } else { /* front < rear */
+            for (int i = front; i <= rear; i++) {
+                newArr[ptr] = items[i];
+            }
+        }
+        items = newArr;
+        return newArr;
     }
 
 }

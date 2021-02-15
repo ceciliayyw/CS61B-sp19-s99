@@ -2,6 +2,7 @@ public class MyOwnTestArrayDeque {
 
     public static void main(String arg[]) {
         ArrayDeque l = new ArrayDeque();
+        /* 7,10 */
 //    l.addLast(0);
 //    l.removeLast();
 //    l.addLast(2);
@@ -16,7 +17,7 @@ public class MyOwnTestArrayDeque {
 //    l.removeFirst();
 //        l.printDeque();
 
-//
+//        /* 6,5,3,2 ; 1 */
 //        l.addFirst(0);
 //        l.addFirst(1);
 //        l.addFirst(2);
@@ -26,7 +27,7 @@ public class MyOwnTestArrayDeque {
 //        l.addFirst(6);
 //        l.isEmpty();
 //        System.out.println (l.removeLast());
-  /*Get */
+  /*Get 10,8,4,11 */
 //        l.addFirst(0);
 //        l.addLast(1);
 //        l.addLast(2);
@@ -40,7 +41,7 @@ public class MyOwnTestArrayDeque {
 //        l.addFirst(10);
 //        l.addLast(11);
 //        System.out.print(l.get(2));
-//        l.printDeque();
+
 
 
         /* Get */
@@ -65,6 +66,8 @@ public class MyOwnTestArrayDeque {
         l.removeFirst();
         l.removeFirst();
         System.out.print(l.removeLast());
+
+
 
 
     }
