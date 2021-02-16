@@ -126,7 +126,7 @@ public class ArrayDeque<T> {
         if (index < 0 || index >= size) {
             return null;
         } else {
-            int current = (front + index) % size;
+            int current = (front + index) % items.length;
 
 //            T[] newArr = (T[]) new Object[items.length];
 //            if (front > rear) {
