@@ -173,14 +173,16 @@ public class ArrayDeque<T> {
             }
             for (int i = 0; i <= rear; i++) {
                 newArr[ptr] = items[i];
+                ptr++;
             }
-            rear = ptr;
+            rear = ptr -1;
         } else { /* front < rear */
             for (int i = front; i <= rear; i++) {
                 newArr[ptr] = items[i];
+                ptr++;
             }
         }
-//        front = 1;
+        front = 1;
         items = newArr;
         return newArr;
     }
