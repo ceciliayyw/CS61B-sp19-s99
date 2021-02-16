@@ -27,20 +27,20 @@ public class MyOwnTestArrayDeque {
 //        l.addFirst(6);
 //        l.isEmpty();
 //        System.out.println (l.removeLast());
-        /*Get 10,8,4,11 */
-//        l.addFirst(0);
-//        l.addLast(1);
-//        l.addLast(2);
-//        l.removeFirst();
-//        l.addFirst(4);
-//        l.addLast(5);
-//        l.removeLast();
-//        l.removeLast();
-//        l.addFirst(8);
-//        l.removeLast();
-//        l.addFirst(10);
-//        l.addLast(11);
-//        System.out.print(l.get(2));
+//        /*Get 10,8,4,11 */
+//        ArrayDeque.addFirst(0);
+//        ArrayDeque.addLast(1);
+//        ArrayDeque.addLast(2);
+//        ArrayDeque.removeFirst();
+//        ArrayDeque.addFirst(4);
+//        ArrayDeque.addLast(5);
+//        ArrayDeque.removeLast();
+//        ArrayDeque.removeLast();
+//        ArrayDeque.addFirst(8);
+//        ArrayDeque.removeLast();
+//        ArrayDeque.addFirst(10);
+//        ArrayDeque.addLast(11);
+//        System.out.print(ArrayDeque.get(2));
 
 
 //        /* Get */
@@ -115,31 +115,31 @@ public class MyOwnTestArrayDeque {
 //        ArrayDeque.addFirst(18);
 //        System.out.print(ArrayDeque.removeLast());
 
-/*20*//***/
-        ArrayDeque.addLast(0);
-        ArrayDeque.get(0);
-        ArrayDeque.addLast(2);
-        ArrayDeque.removeFirst();
-        ArrayDeque.addLast(4);
-        ArrayDeque.addLast(5);
-        ArrayDeque.addFirst(6);
-        ArrayDeque.addLast(7);
-        ArrayDeque.removeLast();
-        ArrayDeque.addLast(9);
-        ArrayDeque.addFirst(10);
-        ArrayDeque.removeFirst();
-        ArrayDeque.removeLast();
-        ArrayDeque.get(3);
-        ArrayDeque.removeLast();
-        ArrayDeque.addLast(15);
-        ArrayDeque.addLast(16);
-        ArrayDeque.addLast(17);
-        ArrayDeque.addLast(18);
-        ArrayDeque.removeFirst();
-        ArrayDeque.addLast(20);
-        ArrayDeque.addFirst(21);
-        ArrayDeque.addFirst(22);
-        System.out.print(ArrayDeque.removeLast());
+///*20*//***/
+//        ArrayDeque.addLast(0);
+//        ArrayDeque.get(0);
+//        ArrayDeque.addLast(2);
+//        ArrayDeque.removeFirst();
+//        ArrayDeque.addLast(4);
+//        ArrayDeque.addLast(5);
+//        ArrayDeque.addFirst(6);
+//        ArrayDeque.addLast(7);
+//        ArrayDeque.removeLast();
+//        ArrayDeque.addLast(9);
+//        ArrayDeque.addFirst(10);
+//        ArrayDeque.removeFirst();
+//        ArrayDeque.removeLast();
+//        ArrayDeque.get(3);
+//        ArrayDeque.removeLast();
+//        ArrayDeque.addLast(15);
+//        ArrayDeque.addLast(16);
+//        ArrayDeque.addLast(17);
+//        ArrayDeque.addLast(18);
+//        ArrayDeque.removeFirst();
+//        ArrayDeque.addLast(20);
+//        ArrayDeque.addFirst(21);
+//        ArrayDeque.addFirst(22);
+//        System.out.print(ArrayDeque.removeLast());
 
 ///** 15*/
 //        ArrayDeque.addFirst(0);
@@ -168,6 +168,7 @@ public class MyOwnTestArrayDeque {
 //        ArrayDeque.removeLast();
 //        ArrayDeque.printDeque();
 
-
+        ArrayDeque.addLast(0);
+        ArrayDeque.removeLast();
     }
 }
