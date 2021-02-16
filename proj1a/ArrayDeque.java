@@ -127,25 +127,6 @@ public class ArrayDeque<T> {
             return null;
         } else {
             int current = (front + index) % items.length;
-
-//            T[] newArr = (T[]) new Object[items.length];
-//            if (front > rear) {
-//
-//                int ptr = 0;
-//                for (int i = front; i < items.length; i++) {
-//                    newArr[ptr] = items[i];
-//                    ptr++;
-//                }
-//                for (int i = 0; i <= rear; i++) {
-//                    newArr[ptr] = items[i];
-//                    ptr++;
-//                }
-//            } else {
-//                int ptr = 0;
-//                for (int i = front; i < items.length; i++) {
-//                    newArr[ptr] = items[i];
-//                    ptr ++;
-//                }
             return items[current];
         }
 
@@ -220,6 +201,7 @@ public class ArrayDeque<T> {
         } else { /* front < rear */
             for (int i = front; i <= rear; i++) {
                 newArr[ptr] = items[i];
+                ptr++;
             }
         }
         front = 0;
