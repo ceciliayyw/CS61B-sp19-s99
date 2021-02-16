@@ -18,7 +18,7 @@ public class ArrayDeque<T> {
     }
 
     public void addFirst(T item) {
-        if (isEmpty() == true) {
+        if (isEmpty()) {
             front = rear = 0;
             items[0] = item;
         } else {
@@ -26,6 +26,7 @@ public class ArrayDeque<T> {
                 addFirstResizing(item);
                 front = minusOne(front);
                 items[front] = item;
+                rear ++;
             } else {
                 front = minusOne(front);
                 items[front] = item;
@@ -36,7 +37,7 @@ public class ArrayDeque<T> {
 
     /* need resizing */
     public void addLast(T item) {
-        if (isEmpty() == true) {
+        if (isEmpty()) {
             front = rear = 0;
             items[0] = item;
 
@@ -55,12 +56,7 @@ public class ArrayDeque<T> {
     }
 
     public boolean isEmpty() {
-        if (size == 0) {
-            return true;
-        } else {
-            return false;
-        }
-
+        return size == 0;
     }
 
     public int size() {
@@ -91,40 +87,38 @@ public class ArrayDeque<T> {
     /* no resizing is needed */
     public T removeFirst() {
 
-        if (isEmpty() == true) {
+        if (isEmpty()) {
             size = 0;
             return null;
-        } else
-            if (size == 1) {
-            T removedItem = items[front];
-            items[0] = null;
-            size = 0;
-            return removedItem;
         } else {
             T removedItem = items[front];
-            items[front] = null;
-            front = plusOne(front);
-            size--;
+            if (size == 1) {
+                items[0] = null;
+                size = 0;
+            } else {
+                items[front] = null;
+                front = plusOne(front);
+                size--;
+            }
             return removedItem;
         }
     }
 
     public T removeLast() {
 
-        if (isEmpty() == true) {
+        if (isEmpty()) {
             size = 0;
             return null;
-        } else
-            if (size == 1) {
-            T removedItem = items[rear];
-            items[0] = null;
-            size = 0;
-            return removedItem;
         } else {
             T removedItem = items[rear];
-            items[rear] = null;
-            rear = minusOne(rear);
-            size--;
+            if (size == 1) {
+                items[0] = null;
+                size = 0;
+            } else {
+                items[rear] = null;
+                rear = minusOne(rear);
+                size--;
+            }
             return removedItem;
         }
 
@@ -142,9 +136,9 @@ public class ArrayDeque<T> {
     }
 
 
-    private ArrayDeque ArrayDeque(ArrayDeque other) {
+    private ArrayDeque arrayDeque(ArrayDeque other) {
         ArrayDeque newArr = new ArrayDeque();
-        if (other.isEmpty() == true) {
+        if (other.isEmpty()) {
             return newArr;
         } else {
             for (int i = 0; i < other.items.length; i++) {

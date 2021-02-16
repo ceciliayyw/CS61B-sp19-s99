@@ -93,28 +93,26 @@ public class MyOwnTestArrayDeque {
 //        ArrayDeque.addLast(4);
 //        System.out.print(ArrayDeque.get(4));
 
-//        ArrayDeque.addLast(0);
-//        ArrayDeque.addFirst(1);
-//        ArrayDeque.addLast(2);
-//        ArrayDeque.removeLast();
-//        ArrayDeque.get(0);
-//        ArrayDeque.addLast(5);
-//        ArrayDeque.addLast(6);
-//        ArrayDeque.addLast(7);
-//        ArrayDeque.removeFirst();
-//        ArrayDeque.get(3);
-//        ArrayDeque.get(1);
-//        ArrayDeque.addFirst(11);
-//        ArrayDeque.get(2);
-//        ArrayDeque.addLast(13);
-//        ArrayDeque.addFirst(14);
-//        ArrayDeque.addFirst(15);
-//        ArrayDeque.addFirst(16);
-//        System.out.print(ArrayDeque.get(7));
-
+        ArrayDeque.addLast(0);
+        ArrayDeque.addLast(1);
+        ArrayDeque.addLast(2);
+        ArrayDeque.get(0);
+        ArrayDeque.removeLast();
+        ArrayDeque.addLast(5);
+        ArrayDeque.get(2);
+        ArrayDeque.addLast(7);
+        ArrayDeque.addLast(8);
+        ArrayDeque.get(1);
+        ArrayDeque.addLast(10);
+        ArrayDeque.addFirst(11);
+        ArrayDeque.addLast(12);
         ArrayDeque.removeFirst();
-        System.out.println(ArrayDeque.size());
-
+        ArrayDeque.addLast(14);
+        ArrayDeque.removeFirst();
+        ArrayDeque.addFirst(16);
+        ArrayDeque.get(1);
+        ArrayDeque.addFirst(18);
+        System.out.print(ArrayDeque.removeLast());
 
 
     }
