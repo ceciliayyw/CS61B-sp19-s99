@@ -90,35 +90,42 @@ public class ArrayDeque<T> {
 
     /* no resizing is needed */
     public T removeFirst() {
-        T removedItem = items[front];
+
         if (isEmpty() == true) {
+            size = 0;
             return null;
         } else if (size == 1) {
-
+            T removedItem = items[front];
             items[0] = null;
             size = 0;
+            return removedItem;
         } else {
+            T removedItem = items[front];
             items[front] = null;
             front = plusOne(front);
             size--;
+            return removedItem;
         }
-        return removedItem;
     }
 
     public T removeLast() {
-        T removedItem = items[rear];
+
         if (isEmpty() == true) {
+            size = 0;
             return null;
         } else if (size == 1) {
-
+            T removedItem = items[rear];
             items[0] = null;
             size = 0;
+            return removedItem;
         } else {
+            T removedItem = items[rear];
             items[rear] = null;
             rear = minusOne(rear);
             size--;
+            return removedItem;
         }
-        return removedItem;
+
     }
 
     public T get(int index) {
@@ -175,7 +182,7 @@ public class ArrayDeque<T> {
                 newArr[ptr] = items[i];
                 ptr++;
             }
-            rear = ptr -1;
+            rear = ptr - 1;
         } else { /* front < rear */
             for (int i = front; i <= rear; i++) {
                 newArr[ptr] = items[i];
