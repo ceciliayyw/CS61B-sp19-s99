@@ -1,3 +1,4 @@
+/*
 public class MyOwnTestLinkedList {
 
     public static void main(String arg[]) {
@@ -8,3 +9,4 @@ public class MyOwnTestLinkedList {
         l.printDeque();
     }
 }
+*/

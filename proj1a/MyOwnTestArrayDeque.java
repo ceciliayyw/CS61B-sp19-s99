@@ -142,24 +142,32 @@ public class MyOwnTestArrayDeque {
 //        System.out.print(ArrayDeque.removeLast());
 
 ///** 15*/
+//        ArrayDeque.addFirst(0);
+//        ArrayDeque.addLast(1);
+//        ArrayDeque.addLast(2);
+//        ArrayDeque.addFirst(3);
+//        ArrayDeque.get(0);
+//        ArrayDeque.addFirst(5);
+//        ArrayDeque.addLast(6);
+//        ArrayDeque.get(5);
+//        ArrayDeque.addLast(8);
+//        ArrayDeque.removeLast();
+//        ArrayDeque.addFirst(10);
+//        ArrayDeque.removeLast();
+//        ArrayDeque.get(0);
+//        ArrayDeque.get(4);
+//        ArrayDeque.addLast(14);
+//        ArrayDeque.addLast(15);
+//        ArrayDeque.addFirst(16);
+//        System.out.print(ArrayDeque.removeLast());
+
         ArrayDeque.addFirst(0);
         ArrayDeque.addLast(1);
         ArrayDeque.addLast(2);
         ArrayDeque.addFirst(3);
-        ArrayDeque.get(0);
-        ArrayDeque.addFirst(5);
-        ArrayDeque.addLast(6);
-        ArrayDeque.get(5);
-        ArrayDeque.addLast(8);
         ArrayDeque.removeLast();
-        ArrayDeque.addFirst(10);
-        ArrayDeque.removeLast();
-        ArrayDeque.get(0);
-        ArrayDeque.get(4);
-        ArrayDeque.addLast(14);
-        ArrayDeque.addLast(15);
-        ArrayDeque.addFirst(16);
-        System.out.print(ArrayDeque.removeLast());
+        ArrayDeque.printDeque();
+
 
     }
 }

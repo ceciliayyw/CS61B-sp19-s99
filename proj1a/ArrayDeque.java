@@ -11,7 +11,7 @@ public class ArrayDeque<T> {
      */
 
     public ArrayDeque() {
-        items = (T[]) new Object[8];
+        items = (T[]) new Object[50];
         front = rear = -1;
         size = 0;
         refactor = 2;
@@ -100,6 +100,7 @@ public class ArrayDeque<T> {
                 front = plusOne(front);
                 size--;
             }
+            resizingDownAnalysis(items);
             return removedItem;
         }
     }
@@ -119,6 +120,7 @@ public class ArrayDeque<T> {
                 rear = minusOne(rear);
                 size--;
             }
+            resizingDownAnalysis(items);
             return removedItem;
         }
 
@@ -184,7 +186,7 @@ public class ArrayDeque<T> {
                 newArr[ptr] = items[i];
                 ptr++;
             }
-            rear ++ ; 
+            rear++;
         }
         front = 1;
         items = newArr;
@@ -213,6 +215,44 @@ public class ArrayDeque<T> {
         front = 0;
         items = newArr;
         return newArr;
+    }
+
+    private T[] resizingDownAnalysis(T[] other) {
+        double sizeUsage = (double) size / items.length * 100;
+        if (sizeUsage >= 25) {
+            System.out.println(sizeUsage);
+            return items;
+        } else {
+            resizingDownHelper(items);
+            System.out.println(sizeUsage);
+            return resizingDownAnalysis(items);
+        }
+
+    }
+
+
+    private T[] resizingDownHelper(T[] other) {
+        double sizeUsage = (double) size / items.length * 100;
+
+        if (sizeUsage < 25) {
+            int tempRefactor = 2;
+            T[] newArr = (T[]) new Object[items.length / tempRefactor];
+            int ptr = 0;
+            if (front>rear) {
+                for (int i = front; i < items.length; i++) {
+                    newArr[ptr] = items[i];
+                    ptr++;
+                }
+                for (int i = 0; i <= rear; i++) {
+                    newArr[ptr] = items[i];
+                    ptr++;
+                }
+                rear = ptr - 1;
+            }
+            return items = newArr;
+        } else {
+            return items;
+        }
     }
 
 }
