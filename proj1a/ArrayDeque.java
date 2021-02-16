@@ -94,12 +94,14 @@ public class ArrayDeque<T> {
         if (isEmpty() == true) {
             size = 0;
             return null;
-        } else if (size == 1) {
-            T removedItem = items[front];
-            items[0] = null;
-            size = 0;
-            return removedItem;
-        } else {
+        } else
+//            if (size == 1) {
+//            T removedItem = items[front];
+//            items[0] = null;
+//            size = 0;
+//            return removedItem;
+//        } else
+            {
             T removedItem = items[front];
             items[front] = null;
             front = plusOne(front);
@@ -113,12 +115,14 @@ public class ArrayDeque<T> {
         if (isEmpty() == true) {
             size = 0;
             return null;
-        } else if (size == 1) {
-            T removedItem = items[rear];
-            items[0] = null;
-            size = 0;
-            return removedItem;
-        } else {
+        } else
+//            if (size == 1) {
+//            T removedItem = items[rear];
+//            items[0] = null;
+//            size = 0;
+//            return removedItem;
+//        } else
+            {
             T removedItem = items[rear];
             items[rear] = null;
             rear = minusOne(rear);
