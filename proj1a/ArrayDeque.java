@@ -25,7 +25,7 @@ public class ArrayDeque<T> {
             if (minusOne(front) == rear && size == items.length) {
                 addFirstResizing(item);
                 front = minusOne(front);
-                rear = plusOne(rear);
+//                rear = plusOne(rear);
                 items[front] = item;
             } else {
                 front = minusOne(front);
@@ -184,6 +184,7 @@ public class ArrayDeque<T> {
                 newArr[ptr] = items[i];
                 ptr++;
             }
+            rear ++ ; 
         }
         front = 1;
         items = newArr;
