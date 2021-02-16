@@ -122,30 +122,31 @@ public class ArrayDeque<T> {
     }
 
     public T get(int index) {
-        if (index < 0 || index > size) {
+
+        if (index < 0 || index >= size) {
             return null;
         } else {
-            T[] newArr = (T[]) new Object[items.length];
-            if (front > rear) {
+            int current = (front + index) % size;
 
-                int ptr = 0;
-                for (int i = front; i < items.length; i++) {
-                    newArr[ptr] = items[i];
-                    ptr++;
-                }
-                for (int i = 0; i <= rear; i++) {
-                    newArr[ptr] = items[i];
-                    ptr++;
-                }
-            } else {
-                int ptr = 0;
-                for (int i = front; i < items.length; i++) {
-                    newArr[ptr] = items[i];
-                    ptr ++;
-                }
-
-            }
-            return newArr[index];
+//            T[] newArr = (T[]) new Object[items.length];
+//            if (front > rear) {
+//
+//                int ptr = 0;
+//                for (int i = front; i < items.length; i++) {
+//                    newArr[ptr] = items[i];
+//                    ptr++;
+//                }
+//                for (int i = 0; i <= rear; i++) {
+//                    newArr[ptr] = items[i];
+//                    ptr++;
+//                }
+//            } else {
+//                int ptr = 0;
+//                for (int i = front; i < items.length; i++) {
+//                    newArr[ptr] = items[i];
+//                    ptr ++;
+//                }
+            return items[current];
         }
 
     }
@@ -215,7 +216,7 @@ public class ArrayDeque<T> {
                 newArr[ptr] = items[i];
                 ptr++;
             }
-            rear = ptr -1;
+            rear = ptr - 1;
         } else { /* front < rear */
             for (int i = front; i <= rear; i++) {
                 newArr[ptr] = items[i];
