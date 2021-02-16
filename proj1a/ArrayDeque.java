@@ -231,12 +231,12 @@ public class ArrayDeque<T> {
 
     private T[] resizingDownHelper(T[] other) {
         double sizeUsage = (double) size / items.length * 100;
-
+        int tempRefactor = 2;
+        T[] newArr = (T[]) new Object[items.length / tempRefactor];
+        int ptr = 0;
         if (sizeUsage < 25) {
-            int tempRefactor = 2;
-            T[] newArr = (T[]) new Object[items.length / tempRefactor];
-            int ptr = 0;
-            if (front>rear){
+
+            if (front > rear) {
                 for (int i = front; i < items.length; i++) {
                     newArr[ptr] = items[i];
                     ptr++;
@@ -246,11 +246,15 @@ public class ArrayDeque<T> {
                     ptr++;
                 }
                 rear = ptr - 1;
+                return items = newArr;
+            }else if (front == rear) {
+                newArr[0] = items[front];
+                items = newArr;
+                front = rear = 0;
             }
             return items = newArr;
-        } else {
+        }  else {
             return items;
         }
     }
-
 }

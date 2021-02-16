@@ -115,51 +115,51 @@ public class MyOwnTestArrayDeque {
 //        ArrayDeque.addFirst(18);
 //        System.out.print(ArrayDeque.removeLast());
 
-///*20*//***/
-//        ArrayDeque.addLast(0);
-//        ArrayDeque.get(0);
-//        ArrayDeque.addLast(2);
-//        ArrayDeque.removeFirst();
-//        ArrayDeque.addLast(4);
-//        ArrayDeque.addLast(5);
-//        ArrayDeque.addFirst(6);
-//        ArrayDeque.addLast(7);
-//        ArrayDeque.removeLast();
-//        ArrayDeque.addLast(9);
-//        ArrayDeque.addFirst(10);
-//        ArrayDeque.removeFirst();
-//        ArrayDeque.removeLast();
-//        ArrayDeque.get(3);
-//        ArrayDeque.removeLast();
-//        ArrayDeque.addLast(15);
-//        ArrayDeque.addLast(16);
-//        ArrayDeque.addLast(17);
-//        ArrayDeque.addLast(18);
-//        ArrayDeque.removeFirst();
-//        ArrayDeque.addLast(20);
-//        ArrayDeque.addFirst(21);
-//        ArrayDeque.addFirst(22);
-//        System.out.print(ArrayDeque.removeLast());
-
-/** 15*/
-        ArrayDeque.addFirst(0);
-        ArrayDeque.addLast(1);
+/*20*//***/
+        ArrayDeque.addLast(0);
+        ArrayDeque.get(0);
         ArrayDeque.addLast(2);
-        ArrayDeque.addFirst(3);
-        ArrayDeque.get(0);
-        ArrayDeque.addFirst(5);
-        ArrayDeque.addLast(6);
-        ArrayDeque.get(5);
-        ArrayDeque.addLast(8);
+        ArrayDeque.removeFirst();
+        ArrayDeque.addLast(4);
+        ArrayDeque.addLast(5);
+        ArrayDeque.addFirst(6);
+        ArrayDeque.addLast(7);
         ArrayDeque.removeLast();
+        ArrayDeque.addLast(9);
         ArrayDeque.addFirst(10);
+        ArrayDeque.removeFirst();
         ArrayDeque.removeLast();
-        ArrayDeque.get(0);
-        ArrayDeque.get(4);
-        ArrayDeque.addLast(14);
+        ArrayDeque.get(3);
+        ArrayDeque.removeLast();
         ArrayDeque.addLast(15);
-        ArrayDeque.addFirst(16);
+        ArrayDeque.addLast(16);
+        ArrayDeque.addLast(17);
+        ArrayDeque.addLast(18);
+        ArrayDeque.removeFirst();
+        ArrayDeque.addLast(20);
+        ArrayDeque.addFirst(21);
+        ArrayDeque.addFirst(22);
         System.out.print(ArrayDeque.removeLast());
+
+///** 15*/
+//        ArrayDeque.addFirst(0);
+//        ArrayDeque.addLast(1);
+//        ArrayDeque.addLast(2);
+//        ArrayDeque.addFirst(3);
+//        ArrayDeque.get(0);
+//        ArrayDeque.addFirst(5);
+//        ArrayDeque.addLast(6);
+//        ArrayDeque.get(5);
+//        ArrayDeque.addLast(8);
+//        ArrayDeque.removeLast();
+//        ArrayDeque.addFirst(10);
+//        ArrayDeque.removeLast();
+//        ArrayDeque.get(0);
+//        ArrayDeque.get(4);
+//        ArrayDeque.addLast(14);
+//        ArrayDeque.addLast(15);
+//        ArrayDeque.addFirst(16);
+//        System.out.print(ArrayDeque.removeLast());
 //
 //        ArrayDeque.addFirst(0);
 //        ArrayDeque.addLast(1);
