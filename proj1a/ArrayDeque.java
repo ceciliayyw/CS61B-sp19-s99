@@ -83,7 +83,7 @@ public class ArrayDeque<T> {
             }
         }
     }
-
+/*hello*/
     /* no resizing is needed */
     public T removeFirst() {
 
