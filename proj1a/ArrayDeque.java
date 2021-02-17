@@ -22,36 +22,25 @@ public class ArrayDeque<T> {
             front = rear = 0;
             items[0] = item;
         } else {
-            if (minusOne(front) == rear && size == items.length) {
-                addFirstResizing(item);
-                front = minusOne(front);
-//                rear = plusOne(rear);
-                items[front] = item;
-            } else {
-                front = minusOne(front);
-                items[front] = item;
-            }
+            front = minusOne(front);
+            items[front] = item;
         }
+        resizingUpAnalysis(items);
         size++;
     }
 
     /* need resizing */
     public void addLast(T item) {
+
         if (isEmpty()) {
             front = rear = 0;
             items[0] = item;
 
         } else {
-            if (plusOne(rear) == items.length || plusOne(rear) == front) {
-                addLastResizing(item);
-                rear = plusOne(rear);
-                items[rear] = item;
-
-            } else {
-                rear = plusOne(rear);
-                items[rear] = item;
-            }
+            rear = plusOne(rear);
+            items[rear] = item;
         }
+        resizingUpAnalysis(items);
         size++;
     }
 
@@ -83,7 +72,8 @@ public class ArrayDeque<T> {
             }
         }
     }
-/*hello*/
+
+    /*hello*/
     /* no resizing is needed */
     public T removeFirst() {
 
@@ -167,36 +157,21 @@ public class ArrayDeque<T> {
 
     }
 
-    /* resizing front == rear */
-    private T[] addFirstResizing(T item) {
-        T[] newArr = (T[]) new Object[items.length * refactor];
-        int ptr = 1;
-        if (front > rear) {  /** add first */
-            for (int i = front; i < items.length; i++) {
-                newArr[ptr] = items[i];
-                ptr++;
-            }
-            for (int i = 0; i <= rear; i++) {
-                newArr[ptr] = items[i];
-                ptr++;
-            }
-            rear = ptr - 1;
-        } else { /* front < rear */
-            for (int i = front; i <= rear; i++) {
-                newArr[ptr] = items[i];
-                ptr++;
-            }
-            rear++;
+    private T[] resizingUpAnalysis(T[] other) {
+        int nextFront = minusOne(front);
+        int nextRear = plusOne(rear);
+
+        if (nextFront == rear || nextRear == front) {
+            return resizingUp(items);
+        } else {
+            return items;
         }
-        front = 1;
-        items = newArr;
-        return newArr;
     }
 
-    private T[] addLastResizing(T item) {
+    private T[] resizingUp(T[] other) {
         T[] newArr = (T[]) new Object[items.length * refactor];
         int ptr = 0;
-        if (front > rear) {  /** add last */
+        if (front > rear) {
             for (int i = front; i < items.length; i++) {
                 newArr[ptr] = items[i];
                 ptr++;
@@ -205,7 +180,6 @@ public class ArrayDeque<T> {
                 newArr[ptr] = items[i];
                 ptr++;
             }
-            rear = ptr - 1;
         } else { /* front < rear */
             for (int i = front; i <= rear; i++) {
                 newArr[ptr] = items[i];
@@ -213,9 +187,11 @@ public class ArrayDeque<T> {
             }
         }
         front = 0;
+        rear = ptr - 1;
         items = newArr;
         return newArr;
     }
+
 
     private T[] resizingDownAnalysis(T[] other) {
         double sizeUsage = (double) size / items.length * 100;
@@ -251,13 +227,13 @@ public class ArrayDeque<T> {
                 newArr[0] = items[front];
                 items = newArr;
                 front = rear = 0;
-            }else{
-                for ( int i = front; i<=rear; i++){
+            } else {
+                for (int i = front; i <= rear; i++) {
                     newArr[ptr] = items[i];
                     ptr++;
                 }
                 front = 0;
-                rear = ptr -1;
+                rear = ptr - 1;
             }
             return items = newArr;
         } else {
