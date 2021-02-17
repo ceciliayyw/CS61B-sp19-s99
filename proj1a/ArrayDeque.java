@@ -251,6 +251,13 @@ public class ArrayDeque<T> {
                 newArr[0] = items[front];
                 items = newArr;
                 front = rear = 0;
+            }else{
+                for ( int i = front; i<=rear; i++){
+                    newArr[ptr] = items[i];
+                    ptr++;
+                }
+                front = 0;
+                rear = ptr -1;
             }
             return items = newArr;
         } else {

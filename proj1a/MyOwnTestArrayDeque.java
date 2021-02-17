@@ -77,14 +77,18 @@ public class MyOwnTestArrayDeque {
         ArrayDeque.addFirst(7);
         ArrayDeque.addFirst(8);
         ArrayDeque.addFirst(9);
+        ArrayDeque.printDeque();
         ArrayDeque.removeFirst();
         ArrayDeque.removeFirst();
         ArrayDeque.removeFirst();
+        ArrayDeque.printDeque();  /*6 */
         ArrayDeque.removeFirst();
         ArrayDeque.removeFirst();
         ArrayDeque.removeFirst();
+        ArrayDeque.printDeque();  /* 3*/
         ArrayDeque.removeFirst();
         ArrayDeque.removeFirst();
+        ArrayDeque.printDeque();
         ArrayDeque.removeFirst();
         ArrayDeque.removeFirst();
         ArrayDeque.removeFirst();
