@@ -211,33 +211,15 @@ public class ArrayDeque<T> {
         T[] newArr = (T[]) new Object[items.length / tempRefactor];
         int ptr = 0;
         if (sizeUsage < 25) {
-            if (front > rear) {
-                for (int i = front; i < items.length; i++) {
-                    newArr[ptr] = items[i];
-                    ptr++;
-                }
-                for (int i = 0; i <= rear; i++) {
-                    newArr[ptr] = items[i];
-                    ptr++;
-                }
-                front = 0;
-                rear = ptr - 1;
-                return items = newArr;
-            } else if (front == rear) {
+            if (front != rear) {
+                resizingUp(items);
+            } else {
                 newArr[0] = items[front];
                 items = newArr;
-                front = rear = 0;
-            } else {
-                for (int i = front; i <= rear; i++) {
-                    newArr[ptr] = items[i];
-                    ptr++;
-                }
-                front = 0;
-                rear = ptr - 1;
             }
-            return items = newArr;
-        } else {
-            return items;
+            front = 0;
+            rear = ptr - 1;
         }
+        return items = newArr;
     }
 }
