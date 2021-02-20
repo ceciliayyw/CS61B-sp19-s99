@@ -31,7 +31,7 @@ public class Palindrome {
 
         if (word.isEmpty() || word.length() == 1 || cur >= rearCur) {
             return true;
-        } else if (curChar!= rearCurChar) {
+        } else if (curChar!=rearCurChar) {
             return false;
         } else {
             return isPalindromeHelper(word, cur + 1, rearCur - 1);
