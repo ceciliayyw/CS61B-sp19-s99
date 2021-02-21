@@ -25,7 +25,7 @@ public class Palindrome {
     }
 
 
-    public boolean isPalindromeHelper(String word, int cur, int rearCur) {
+    private boolean isPalindromeHelper(String word, int cur, int rearCur) {
         char curChar = word.charAt(cur);
         char rearCurChar = word.charAt(rearCur);
 
@@ -47,7 +47,7 @@ public class Palindrome {
         }
     }
 
-    public boolean isPalindromeHelper (String word, int cur, int rearCur, CharacterComparator cc){
+    private boolean isPalindromeHelper (String word, int cur, int rearCur, CharacterComparator cc){
         char curChar = word.charAt(cur);
         char rearCurChar = word.charAt(rearCur);
 
