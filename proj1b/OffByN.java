@@ -9,7 +9,7 @@ public class OffByN implements CharacterComparator {
         return result == Math.abs(difference);
     }
 
-    private OffByN(int N) {
+    public OffByN(int N) {
         difference = N;
     }
 }
