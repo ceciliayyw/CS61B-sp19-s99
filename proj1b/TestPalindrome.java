@@ -17,27 +17,27 @@ public class TestPalindrome {
     }
 
     @Test
-    public void testPalindrome(){
+    public void testPalindrome() {
         /** test palindrome */
         String input1 = "racecar";
         boolean actualResult1 = palindrome.isPalindrome(input1);
-        assertTrue(actualResult1 );
+        assertTrue(actualResult1);
 
         String input2 = "noon";
         boolean actualResult2 = palindrome.isPalindrome(input2);
-        assertTrue(actualResult2 );
+        assertTrue(actualResult2);
 
         String input3 = "";
         boolean actualResult3 = palindrome.isPalindrome(input2);
-        assertTrue(actualResult3 );
+        assertTrue(actualResult3);
 
         String input4 = "a";
         boolean actualResult4 = palindrome.isPalindrome(input2);
-        assertTrue(actualResult4 );
+        assertTrue(actualResult4);
 
         String input5 = "willow";
         boolean actualResult5 = palindrome.isPalindrome(input5);
-        assertFalse(actualResult5 );
+        assertFalse(actualResult5);
 
         /** Test OffByOne */
         assertFalse(palindrome.isPalindrome("racecar", new OffByOne()));

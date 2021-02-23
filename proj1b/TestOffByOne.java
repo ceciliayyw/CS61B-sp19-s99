@@ -12,7 +12,7 @@ public class TestOffByOne {
     @Test
     public void testEqualChars() {
         //static context?
-        boolean result1 = offByOne.equalChars('a', 'b');
+        boolean result1 = offByOne.equalChars('A', 'b');
         assertTrue(result1);
 
         boolean result2 = offByOne.equalChars('a', '%');

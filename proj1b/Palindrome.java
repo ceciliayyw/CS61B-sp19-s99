@@ -1,5 +1,4 @@
-import java.lang.*;
-
+//import java.lang.*;
 public class Palindrome {
 
     public Deque<Character> wordToDeque(String word) {
@@ -31,7 +30,7 @@ public class Palindrome {
 
         if (word.isEmpty() || word.length() == 1 || cur >= rearCur) {
             return true;
-        } else if (curChar!=rearCurChar) {
+        } else if (curChar != rearCurChar) {
             return false;
         } else {
             return isPalindromeHelper(word, cur + 1, rearCur - 1);
@@ -47,11 +46,11 @@ public class Palindrome {
         }
     }
 
-    private boolean isPalindromeHelper (String word, int cur, int rearCur, CharacterComparator cc){
+    private boolean isPalindromeHelper(String word, int cur, int rearCur, CharacterComparator cc) {
         char curChar = word.charAt(cur);
         char rearCurChar = word.charAt(rearCur);
 
-        if ( cur >= rearCur) {
+        if (cur >= rearCur) {
             System.out.println(word.length());
             return true;
         } else if (!cc.equalChars(curChar, rearCurChar)) {
