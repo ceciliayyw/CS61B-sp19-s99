@@ -43,7 +43,7 @@ public class Palindrome {
         if (word.isEmpty() || word.length() == 1) {
             return true;
         } else {
-            return isPalindromeHelper(word, 0, word.length() - 1, new OffByOne());
+            return isPalindromeHelper(word, 0, word.length() - 1, cc);
         }
     }
 
