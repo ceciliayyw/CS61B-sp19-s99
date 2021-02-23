@@ -12,17 +12,19 @@ public class TestOffByOne {
     @Test
     public void testEqualChars() {
         //static context?
-        boolean result1 = offByOne.equalChars('A', 'b');
+        boolean result1 = offByOne.equalChars('A', 'B');
         assertTrue(result1);
 
-        boolean result2 = offByOne.equalChars('a', '%');
+        boolean result2 = offByOne.equalChars('A', '%');
         assertFalse(result2);
 
-        boolean result3 = offByOne.equalChars('a', 'a');
+        boolean result3 = offByOne.equalChars('A', 'a');
         assertFalse(result3);
 
         assertTrue(offByOne.equalChars('&', '%'));
-        assertTrue(offByOne.equalChars('b', 'a'));
+        assertTrue(offByOne.equalChars('B', 'a'));
+        assertTrue(offByOne.equalChars('c', 'd'));
+        assertTrue(offByOne.equalChars('C', 'D'));
 
 
     }
