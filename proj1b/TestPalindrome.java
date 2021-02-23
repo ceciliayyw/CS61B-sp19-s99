@@ -18,6 +18,7 @@ public class TestPalindrome {
 
     @Test
     public void testPalindrome(){
+        /** test palindrome */
         String input1 = "racecar";
         boolean actualResult1 = palindrome.isPalindrome(input1);
         assertTrue(actualResult1 );
@@ -38,11 +39,13 @@ public class TestPalindrome {
         boolean actualResult5 = palindrome.isPalindrome(input5);
         assertFalse(actualResult5 );
 
-        assertTrue(palindrome.isPalindrome("racecar", new OffByOne()));
-        assertTrue(palindrome.isPalindrome("noon", new OffByOne()));
+        /** Test OffByOne */
+        assertFalse(palindrome.isPalindrome("racecar", new OffByOne()));
+        assertFalse(palindrome.isPalindrome("noon", new OffByOne()));
         assertTrue(palindrome.isPalindrome("", new OffByOne()));
         assertTrue(palindrome.isPalindrome("a", new OffByOne()));
         assertFalse(palindrome.isPalindrome("willow", new OffByOne()));
+        assertTrue(palindrome.isPalindrome("acb", new OffByOne()));
 
     }
 }

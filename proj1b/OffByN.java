@@ -6,7 +6,10 @@ public class OffByN implements CharacterComparator {
         int a = x;
         int b = y;
         int result = a - b;
-        return result == Math.abs(difference);
+        if (result<0){
+            result = result * -1;
+        }
+        return result == difference;
     }
 
     public OffByN(int N) {
